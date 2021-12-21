@@ -1,0 +1,2 @@
+deploymentURIsLocal:
+  - "http://helloserver.podtato-head-production:80" 
