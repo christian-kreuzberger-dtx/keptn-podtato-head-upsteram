@@ -2,7 +2,7 @@ apiVersion: v2
 actions:
   - name: "Deploy using helm"
     events:
-      - name: "sh.keptn.event.deployment.triggered"
+      - name: "sh.keptn.event.je-deployment.triggered"
     tasks:
       - name: "Run helm upgrade"
         files:
@@ -20,19 +20,19 @@ actions:
           - '/keptn/helm/helloserver.tgz'
           - '--wait'
         env:
-          - name: TEST_STRATEGY
-            value: "$.data.test.testStrategy"
-            valueFrom: event
           - name: PROJECT
             value: "$.data.project"
+            valueFrom: event
           - name: SERVICE
             value: "$.data.service"
+            valueFrom: event
           - name: STAGE
             value: "$.data.stage"
+            valueFrom: event
 
   - name: "Run locust"
     events:
-      - name: "sh.keptn.event.test.triggered"
+      - name: "sh.keptn.event.je-test.triggered"
     tasks:
       - name: "Run locust tests"
         files:
