@@ -6,7 +6,7 @@ actions:
     tasks:
       - name: "list files"
         files:
-          - helm/
+          - /
         image: "alpine/helm:3.7.2"
         cmd:
           - ls
