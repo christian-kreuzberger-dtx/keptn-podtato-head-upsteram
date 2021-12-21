@@ -1,0 +1,59 @@
+apiVersion: v2
+actions:
+  - name: "Deploy using helm"
+    events:
+      - name: "sh.keptn.event.deployment.triggered"
+    tasks:
+      - name: "Run helm upgrade"
+        files:
+          - helm/helloserver.tgz
+        image: "alpine/helm:3.7.2"
+        cmd:
+          - helm
+        args:
+          - 'upgrade'
+          - '--install'
+          - '-n'
+          - '$(PROJECT)-$(STAGE)'
+          - '--create-namespace'
+          - '$(SERVICE)'
+          - '/keptn/helm/helloserver.tgz'
+          - '--wait'
+        env:
+          - name: TEST_STRATEGY
+            value: "$.data.test.testStrategy"
+            valueFrom: event
+          - name: PROJECT
+            value: "$.data.project"
+          - name: SERVICE
+            value: "$.data.service"
+          - name: STAGE
+            value: "$.data.stage"
+
+  - name: "Run locust"
+    events:
+      - name: "sh.keptn.event.test.triggered"
+    tasks:
+      - name: "Run locust tests"
+        files:
+          - locust/basic.py
+          - locust/load.py
+          - locust/locust.conf
+        image: "locustio/locust:2.5.1"
+        cmd:
+          - locust
+        args:
+          - '--config'
+          - /keptn/locust/locust.conf
+          - '-f'
+          - /keptn/locust/load.py
+          - '--host'
+          - $(HOST)
+        env:
+          - name: HOST
+            value: "$.data.deployment.deploymentURIsLocal[0]"
+            valueFrom: event
+          - name: TEST_STRATEGY
+            value: "$.data.test.testStrategy"
+            valueFrom: event
+
