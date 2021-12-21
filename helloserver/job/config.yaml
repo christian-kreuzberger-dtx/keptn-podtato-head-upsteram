@@ -6,7 +6,7 @@ actions:
     tasks:
       - name: "Run helm upgrade"
         files:
-          - helm/helloserver.tgz
+          - helm/helloserver.tgza
         image: "alpine/helm:3.7.2"
         cmd:
           - helm
@@ -17,7 +17,7 @@ actions:
           - '$(PROJECT)-$(STAGE)'
           - '--create-namespace'
           - '$(SERVICE)'
-          - '/keptn/helm/helloserver.tgz'
+          - '/keptn/helm/helloserver.tgza'
           - '--wait'
         env:
           - name: PROJECT
