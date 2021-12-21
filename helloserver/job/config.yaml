@@ -4,7 +4,7 @@ actions:
     events:
       - name: "sh.keptn.event.je-deployment.triggered"
     tasks:
-      - name: "list files"
+      - name: "foobar files"
         files:
           - /
         image: "alpine/helm:3.7.2"
