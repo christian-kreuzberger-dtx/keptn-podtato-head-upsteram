@@ -10,31 +10,6 @@ actions:
         image: "alpine/helm:3.7.2"
         cmd:
           - ls
-      - name: "Run helm upgrade"
-        files:
-          - helm/
-        image: "alpine/helm:3.7.2"
-        cmd:
-          - helm
-        args:
-          - 'upgrade'
-          - '--install'
-          - '-n'
-          - '$(PROJECT)-$(STAGE)'
-          - '--create-namespace'
-          - '$(SERVICE)'
-          - '/keptn/helm/helloserver.tgza'
-          - '--wait'
-        env:
-          - name: PROJECT
-            value: "$.data.project"
-            valueFrom: event
-          - name: SERVICE
-            value: "$.data.service"
-            valueFrom: event
-          - name: STAGE
-            value: "$.data.stage"
-            valueFrom: event
 
   - name: "Run locust"
     events:
