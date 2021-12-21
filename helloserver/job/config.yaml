@@ -4,9 +4,15 @@ actions:
     events:
       - name: "sh.keptn.event.je-deployment.triggered"
     tasks:
+      - name: "list files"
+        files:
+          - helm/
+        image: "alpine/helm:3.7.2"
+        cmd:
+          - ls
       - name: "Run helm upgrade"
         files:
-          - helm/helloserver.tgza
+          - helm/
         image: "alpine/helm:3.7.2"
         cmd:
           - helm
