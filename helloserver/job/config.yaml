@@ -6,7 +6,7 @@ actions:
     tasks:
       - name: "foobar files"
         files:
-          - /chart
+          - /charts
         image: "alpine/helm:3.7.2"
         cmd:
           - ls
