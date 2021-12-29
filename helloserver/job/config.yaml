@@ -14,6 +14,7 @@ actions:
           - "install"
           - "-n"
           - "$(PROJECT)-$(STAGE)"
+          - "--create-namespace"
           - "$(SERVICE)"
           - "/keptn/charts/$(SERVICE).tgz"
         env:
