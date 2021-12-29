@@ -9,5 +9,6 @@ actions:
           - /
         image: "alpine/helm:3.7.2"
         cmd:
-          - ls -latr
-
+          - "ls"
+        args:
+         - "-latr"
