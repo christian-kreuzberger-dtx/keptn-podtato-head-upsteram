@@ -25,4 +25,4 @@ actions:
             valueFrom: event
           - name: SERVICE
             value: "$.data.service"
-            valueForm: event
+            valueFrom: event
