@@ -9,6 +9,7 @@ actions:
           - /
         image: "alpine/helm:3.7.2"
         cmd:
-          - "ls"
+          - "bash"
         args:
-         - "-latr"
+         - "-c"
+         - "ls -la /keptn"
