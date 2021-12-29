@@ -6,10 +6,7 @@ actions:
     tasks:
       - name: "foobar files"
         files:
-          - /
-        image: "alpine:3.15"
+          - /chart
+        image: "alpine/helm:3.7.2"
         cmd:
-          - "ls"
-        args:
-         - "-la"
-         - "/keptn"
+          - ls
