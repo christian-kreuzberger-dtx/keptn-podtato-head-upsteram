@@ -52,7 +52,7 @@ actions:
           - '-f'
           - /keptn/locust/basic.py
           - '--host'
-          - helloservice.$(PROJECT)-$(STAGE)
+          - "http://helloservice.$(PROJECT)-$(STAGE)"
         env:
           - name: PROJECT
             value: "$.data.project"
