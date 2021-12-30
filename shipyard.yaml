@@ -10,3 +10,4 @@ spec:
           tasks:
             - name: "je-deployment"
             - name: "je-test"
+            - name: "evaluate"
