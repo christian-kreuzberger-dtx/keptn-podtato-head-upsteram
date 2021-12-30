@@ -7,7 +7,3 @@ class WebsiteUser(HttpUser):
     @task
     def index(self):
         self.client.get("/")
-
-    @task
-    def health(self):
-        self.client.get("/health")
