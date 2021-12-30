@@ -20,5 +20,5 @@ spec:
           triggeredOn:
             - event: "hardening.delivery.finished"
           tasks:
+            - name: "approval"
             - name: "je-deployment"
-            - name: "evaluation"
