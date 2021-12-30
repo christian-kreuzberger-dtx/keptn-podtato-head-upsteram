@@ -4,10 +4,18 @@ metadata:
   name: "shipyard-delivery"
 spec:
   stages:
-    - name: "production"
+    - name: "qa"
       sequences:
         - name: "delivery"
           tasks:
             - name: "je-deployment"
             - name: "je-test"
+            - name: "evaluation"
+    - name: "production"
+      sequences:
+        - name: "delivery"
+          triggeredOn:
+            - event: "hardening.delivery.finished"
+          tasks:
+            - name: "je-deployment"
             - name: "evaluation"
