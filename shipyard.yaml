@@ -11,6 +11,9 @@ spec:
             - name: "je-deployment"
             - name: "je-test"
             - name: "evaluation"
+              properties:
+                timeframe: "1m"
+
     - name: "production"
       sequences:
         - name: "delivery"
