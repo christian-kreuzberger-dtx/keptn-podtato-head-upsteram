@@ -11,7 +11,8 @@ actions:
         cmd:
           - helm
         args:
-          - "install"
+          - "upgrade"
+          - "--install"
           - "-n"
           - "$(PROJECT)-$(STAGE)"
           - "--create-namespace"
